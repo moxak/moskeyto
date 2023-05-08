@@ -8,7 +8,8 @@
     "128": "static/icon128.png"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "bookmarks"
   ],
   "action": {
     "default_icon": "static/icon64.png",
