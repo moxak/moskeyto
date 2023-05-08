@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Moskeyto",
+  "version": "1.0",
+  "description": "A simple key shortcut extention",
+  "icons": {
+    "48": "static/icon64.png",
+    "128": "static/icon128.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "action": {
+    "default_icon": "static/icon64.png",
+    "default_popup": "static/popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
