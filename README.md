@@ -7,6 +7,7 @@ A simple bookmark manager extention
 ![](./images/screenshot.png)
 
 ```bash
+# node >= 16
 npm install
 npm run build
 ```
