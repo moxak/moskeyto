@@ -17,20 +17,25 @@ import { useRef } from 'react';
 
 export const App: React.FC = () => {
   const [isAltPressed, setIsAltPressed] = useState(false);
+  const [inputRef, setInputRef] = useState<any>(null);
   const linkRefs:any = useRef([]);
 
+  // キー入力の待ち受け
   useEffect(() => {
     const handleKeyDown = (e:any) => {
       if (e.altKey && !isNaN(parseInt(e.key))) {
-        // Alt + 数字キーが押された場合
+        // Alt + [0...9]
         const index = parseInt(e.key) - 1;
         if (linkRefs.current[index]) {
           window.open(linkRefs.current[index].href, '_blank');
         }
       } else if (e.key === 'Alt') {
         setIsAltPressed(true);
+      } else if (e.key === 'l' && isAltPressed) {
+        // Alt + l
+        inputRef.focus();
       } else if (e.key === 'j' && isAltPressed) {
-        // Altキーが押されている状態で、"j"キーが押された場合
+        // Alt + j
         if (linkRefs.current[0]) {
           window.open(linkRefs.current[0].href, '_blank');
         }
@@ -78,7 +83,10 @@ export const App: React.FC = () => {
           </Box>
         </header>
         <Divider my="sm" />
-        <Bookmarks linkRefs={linkRefs} />
+        <Bookmarks
+          setInputRef={setInputRef} 
+          linkRefs={linkRefs} 
+        />
         <Divider my="sm" />
         <footer>
           <Group position="center">

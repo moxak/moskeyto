@@ -7,17 +7,22 @@ import { useBookmarkData } from "../hooks/UseBookmarkData";
 import { useKeywordData } from "../hooks/UseKeywordData";
 
 type Props = {
+  setInputRef: any;
   linkRefs: any;
 }
 
-export const Bookmarks: React.FC<Props> = ({ linkRefs }) => {
+export const Bookmarks: React.FC<Props> = ({ setInputRef, linkRefs }) => {
   
   const { keyword, handleChangeKeyword } = useKeywordData();
   const { bookmarks } = useBookmarkData(keyword);
     
   return (
     <>
-      <BookmarkListForm onChange={handleChangeKeyword} bookmarkLength={bookmarks.length} />
+      <BookmarkListForm 
+        onChange={handleChangeKeyword} 
+        bookmarkLength={bookmarks.length} 
+        setInputRef={setInputRef}
+      />
       {bookmarks.length > 0 && (
         <List type="ordered"  mt="md">
           {bookmarks.map((bookmark, index) => (

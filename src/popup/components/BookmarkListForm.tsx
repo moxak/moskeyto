@@ -7,9 +7,10 @@ import { commonValue } from "../../CommonValue";
 type Props = {
   onChange: (value: string) => void;
   bookmarkLength: number;
+  setInputRef: any;
 };
 
-export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength }) => {
+export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength, setInputRef }) => {
   const [keyword, setKeyword] = useState("");
   const [debounced] = useDebouncedValue(keyword, commonValue.loadDelay);
 
@@ -30,7 +31,8 @@ export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength })
         onChange={(e) => setKeyword(e.currentTarget.value)}
         autoFocus={true}
         autoComplete="off"
-        placeholder="キーワード"
+        placeholder="キーワード(Alt + l)"
+        ref={(ref) => setInputRef(ref)}
       />
       <Button color="gray" onClick={handleClear} disabled={keyword.length < 1}>
         クリア
