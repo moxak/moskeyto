@@ -48,7 +48,8 @@ export const useBookmarkData = (keyword:string) => {
     const fetchAndSetBookmarks = async () => {
       const bookmarkTreeNodes: BookmarkTreeNode[] = await fetchBookmarks();
       const items = flattenBookmarks(bookmarkTreeNodes, []).filter((i) =>
-        i.title.toLowerCase().includes(keyword.toLowerCase()),
+        // カテゴリー(ブックマークフォルダ名)を検索対象に含める
+        (i.category.join('') + i.title).toLowerCase().includes(keyword.toLowerCase()),
       );
       setBookmarks(items);
     };
