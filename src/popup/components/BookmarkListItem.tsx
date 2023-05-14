@@ -5,17 +5,19 @@ type Props = {
   bookmark: BookmarkItem;
 };
 
+
 export const BookmarkListItem: React.FC<Props> = ({ bookmark }) => {
+
   return (
     <List.Item>
-      <Title order={3}>
+      <Title order={4}>
         <Anchor href={bookmark.url} target="_blank" rel="noopener noreferrer">
           {bookmark.title}
         </Anchor>
       </Title>
       <Group>
         {bookmark.category?.map((category) => (
-        <Badge fz="sm" color="cyan.3">{category}</Badge>
+        <Badge fz="sm" color='blue.5'>{category}</Badge>
         ))}
       </Group>
     </List.Item>

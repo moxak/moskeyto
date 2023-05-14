@@ -20,7 +20,7 @@ export const App: React.FC = () => {
     <MantineProvider withGlobalStyles={false} withNormalizeCSS={true}>
       <Container size={600}>
         <header>
-          <Title order={1}>{commonValue.appName}</Title>
+          <Title order={2}>{commonValue.appName}</Title>
           <Box fz="sm">
             <Text>{commonValue.appDescription}</Text>
           </Box>

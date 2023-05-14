@@ -1,13 +1,14 @@
-import { Button, Group, TextInput, Anchor } from "@mantine/core";
+import { Button, Group, TextInput, Text } from "@mantine/core";
 import { IconExternalLink } from '@tabler/icons-react';
 import { useDebouncedValue } from "@mantine/hooks";
 import React, { useEffect, useState } from "react";
 
 type Props = {
   onChange: (value: string) => void;
+  bookmarkLength: number;
 };
 
-export const BookmarkListForm = React.memo<Props>(({ onChange }) => {
+export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength }) => {
   const [keyword, setKeyword] = useState("");
   const [debounced] = useDebouncedValue(keyword, 500);
 
@@ -33,6 +34,7 @@ export const BookmarkListForm = React.memo<Props>(({ onChange }) => {
       <Button color="gray" onClick={handleClear} disabled={keyword.length < 1}>
         クリア
       </Button>
+      <Text fz="lg">{bookmarkLength}件</Text>
       {/* <Button  /// リダイレクトできない
         component="a" 
         variant="outline" 

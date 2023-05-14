@@ -14,5 +14,5 @@ export interface BookmarkTreeNode {
 export type BookmarkItem = {
   title: string;
   url: string;
-  category?: string[];
+  category: string[];
 }

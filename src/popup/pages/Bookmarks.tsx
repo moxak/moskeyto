@@ -11,14 +11,14 @@ export const Bookmarks: React.FC = () => {
   
   const { keyword, handleChangeKeyword } = useKeywordData();
   const { bookmarks } = useBookmarkData(keyword);
-  
+    
   return (
     <>
-      <BookmarkListForm onChange={handleChangeKeyword} />
+      <BookmarkListForm onChange={handleChangeKeyword} bookmarkLength={bookmarks.length} />
       {bookmarks.length > 0 && (
-        <List sx={{ listStyle: "inside" }} mt="md">
+        <List type="ordered" mt="md">
           {bookmarks.map((bookmark) => (
-            <BookmarkListItem key={bookmark.url} bookmark={bookmark} />
+            <BookmarkListItem key={bookmark.url} bookmark={bookmark}/>
           ))}
         </List>
       )}
