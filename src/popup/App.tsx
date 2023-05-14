@@ -11,7 +11,7 @@ import {
 import { commonValue, targetUrls } from "../CommonValue";
 import React, { useEffect, useState } from 'react';
 import { Bookmarks } from './pages/Bookmarks';
-
+import AppIcon from '/public/icon/icon.svg';
 
 
 export const App: React.FC = () => {
@@ -20,7 +20,14 @@ export const App: React.FC = () => {
     <MantineProvider withGlobalStyles={false} withNormalizeCSS={true}>
       <Container size={600}>
         <header>
-          <Title order={2}>{commonValue.appName}</Title>
+          <Group>
+            <img 
+              src={AppIcon} 
+              alt={commonValue.appName} 
+              style={{ width: '48px', height: '48px' }}
+            />
+            <Title order={2}>{commonValue.appName}</Title>
+          </Group>
           <Box fz="sm">
             <Text>{commonValue.appDescription}</Text>
           </Box>

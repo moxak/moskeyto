@@ -1,5 +1,7 @@
 # moskeyto
 
+![](./public/icon/icon48.png)
+
 ```bash
 npm install
 npm run build

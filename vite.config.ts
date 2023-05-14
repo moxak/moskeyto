@@ -12,9 +12,14 @@ const manifest = defineManifest({
     "tabs", 
     "bookmarks"
   ],
+  icons: {
+    "16": "public/icon/icon16.png",
+    "48": "public/icon/icon48.png",
+    "128": "public/icon/icon128.png"
+  },
   host_permissions: ["*://*/*"],
   action: {
-    default_popup: "index.html",
+    default_popup: "public/index.html",
   },
   background: { service_worker: "src/background/index.ts" },
   content_scripts: [
