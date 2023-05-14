@@ -10,7 +10,7 @@ export const commonValue = {
   appGithubUrl: "https://github.com/moxak/moskeyto",
 
   /// ドキュメントが読み込まれるまでの待機時間（ミリ秒）
-  documentLoadDelay: 500,
+  loadDelay: 100,
 } as const satisfies { [key: string]: unknown };
 
 /// 監視対象のURL

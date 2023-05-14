@@ -6,8 +6,11 @@ import { BookmarkListItem } from "../components/BookmarkListItem";
 import { useBookmarkData } from "../hooks/UseBookmarkData";
 import { useKeywordData } from "../hooks/UseKeywordData";
 
+type Props = {
+  linkRefs: any;
+}
 
-export const Bookmarks: React.FC = () => {
+export const Bookmarks: React.FC<Props> = ({ linkRefs }) => {
   
   const { keyword, handleChangeKeyword } = useKeywordData();
   const { bookmarks } = useBookmarkData(keyword);
@@ -21,6 +24,8 @@ export const Bookmarks: React.FC = () => {
             <BookmarkListItem 
               key={bookmark.url} 
               bookmark={bookmark}
+              index={index}
+              linkRefs={linkRefs}
             />
           ))}
         </List>

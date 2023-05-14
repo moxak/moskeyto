@@ -12,8 +12,52 @@ import { commonValue, targetUrls } from "../CommonValue";
 import React, { useEffect, useState } from 'react';
 import { Bookmarks } from './pages/Bookmarks';
 import AppIcon from '/public/icon/icon.svg';
+import { useRef } from 'react';
 
 export const App: React.FC = () => {
+  const [isAltPressed, setIsAltPressed] = useState(false);
+  const linkRefs:any = useRef([]);
+
+  useEffect(() => {
+    const handleKeyDown = (e:any) => {
+      if (e.altKey && !isNaN(parseInt(e.key))) {
+        // Alt + 数字キーが押された場合
+        const index = parseInt(e.key) - 1;
+        if (linkRefs.current[index]) {
+          window.open(linkRefs.current[index].href, '_blank');
+        }
+      } else if (e.key === 'Alt') {
+        setIsAltPressed(true);
+      } else if (e.key === 'j' && isAltPressed) {
+        // Altキーが押されている状態で、"j"キーが押された場合
+        if (linkRefs.current[0]) {
+          window.open(linkRefs.current[0].href, '_blank');
+        }
+        console.log(linkRefs);
+        console.log('Alt + j');
+      }
+      // テキスト入力エリアである場合、イベントを無視する
+      if (e.target?.tagName === 'INPUT' || e.target?.tagName === 'TEXTAREA') {
+        return;
+      }
+
+    };
+
+    const handleKeyUp = (e:any) => {
+      if (e.key === 'Alt') {
+        setIsAltPressed(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+
+  }, [isAltPressed]);
 
   return (
     <MantineProvider withGlobalStyles={false} withNormalizeCSS={true}>
@@ -32,7 +76,7 @@ export const App: React.FC = () => {
           </Box>
         </header>
         <Divider my="sm" />
-        <Bookmarks />
+        <Bookmarks linkRefs={linkRefs} />
         <Divider my="sm" />
         <footer>
           <Group position="center">

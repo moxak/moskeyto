@@ -2,6 +2,7 @@ import { Button, Group, TextInput, Text } from "@mantine/core";
 import { IconExternalLink } from '@tabler/icons-react';
 import { useDebouncedValue } from "@mantine/hooks";
 import React, { useEffect, useState } from "react";
+import { commonValue } from "../../CommonValue";
 
 type Props = {
   onChange: (value: string) => void;
@@ -10,7 +11,7 @@ type Props = {
 
 export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength }) => {
   const [keyword, setKeyword] = useState("");
-  const [debounced] = useDebouncedValue(keyword, 500);
+  const [debounced] = useDebouncedValue(keyword, commonValue.loadDelay);
 
   // キーワードの入力が一定時間なかった時に呼び出される
   useEffect(() => {
