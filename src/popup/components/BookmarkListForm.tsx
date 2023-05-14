@@ -36,16 +36,6 @@ export const BookmarkListForm = React.memo<Props>(({ onChange, bookmarkLength })
         クリア
       </Button>
       <Text fz="lg">{bookmarkLength}件</Text>
-      {/* <Button  /// リダイレクトできない
-        component="a" 
-        variant="outline" 
-        href="about://bookmarks/"
-        // target="_blank"
-        rel="noopener noreferrer"
-        leftIcon={<IconExternalLink size="0.9rem" />}
-      >
-        Bookmark Manager
-      </Button> */}
     </Group>
   );
 });

@@ -1,6 +1,10 @@
 # moskeyto
 
-![](./public/icon/icon48.png)
+A simple bookmark manager extention
+
+<!-- ![](./public/icon/icon48.png) -->
+
+![](./images/screenshot.png)
 
 ```bash
 npm install

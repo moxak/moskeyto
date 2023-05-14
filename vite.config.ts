@@ -6,7 +6,7 @@ const manifest = defineManifest({
   manifest_version: 3,
   name: "Moskeyto",
   version: "1.0.0",
-  description: "A simple key shortcut extention",
+  description: "A simple bookmark manager extention",
   permissions: [
     "storage", 
     "tabs", 

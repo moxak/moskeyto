@@ -27,6 +27,9 @@ export const BookmarkListItem: React.FC<Props> = ({ bookmark, index, linkRefs })
             {bookmark.title}
           </Anchor>
         </Title>
+        {index === 0 && (
+        <Badge fz="sm" color='orange.5'>Alt + j</Badge>
+        )}
         {index < 9 && (
         <Badge fz="sm" color='orange.5'>Alt + {index + 1}</Badge> // ショートカットキーの表示
         )}

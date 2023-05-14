@@ -1,5 +1,6 @@
 import {
   Anchor,
+  Badge,
   Box,
   Container,
   Divider,
@@ -70,6 +71,7 @@ export const App: React.FC = () => {
               style={{ width: '48px', height: '48px' }}
             />
             <Title order={2}>{commonValue.appName}</Title>
+            <Badge fz="sm" color='orange.5'>Alt + M</Badge>
           </Group>
           <Box fz="sm">
             <Text>{commonValue.appDescription}</Text>
