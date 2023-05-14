@@ -6,7 +6,8 @@ export const useKeywordData = () => {
 
   // キーワードが変更された時のイベント
   const handleChangeKeyword = useCallback((value: string) => {
-    setKeyword(value);
+    // 空白の除去
+    setKeyword(value.replace(/\s+/g, ''));
   }, []);
 
   return { keyword, handleChangeKeyword };
