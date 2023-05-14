@@ -13,12 +13,11 @@ export const BookmarkListItem: React.FC<Props> = ({ bookmark }) => {
           {bookmark.title}
         </Anchor>
       </Title>
-      {/* <Group>
-        <Badge fz="sm" color="blue">
-          {history.type}
-        </Badge>
-        <Text fz="sm">{history.createdAt}</Text>
-      </Group> */}
+      <Group>
+        {bookmark.category?.map((category) => (
+        <Badge fz="sm" color="cyan.3">{category}</Badge>
+        ))}
+      </Group>
     </List.Item>
   );
 };

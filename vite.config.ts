@@ -7,7 +7,11 @@ const manifest = defineManifest({
   name: "Moskeyto",
   version: "1.0.0",
   description: "A simple key shortcut extention",
-  permissions: ["storage", "tabs", "bookmarks"],
+  permissions: [
+    "storage", 
+    "tabs", 
+    "bookmarks"
+  ],
   host_permissions: ["*://*/*"],
   action: {
     default_popup: "index.html",

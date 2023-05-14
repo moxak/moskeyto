@@ -4,7 +4,7 @@ export const commonValue = {
   appName: "Moskeyto",
 
   /// アプリの説明
-  appDescription: "A simple key shortcut extention",
+  appDescription: "A simple bookmark manager extention",
 
   /// アプリのGithubリポジトリ
   appGithubUrl: "https://github.com/moxak/moskeyto",

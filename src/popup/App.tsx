@@ -18,7 +18,7 @@ export const App: React.FC = () => {
 
   return (
     <MantineProvider withGlobalStyles={false} withNormalizeCSS={true}>
-      <Container size={350}>
+      <Container size={600}>
         <header>
           <Title order={1}>{commonValue.appName}</Title>
           <Box fz="sm">

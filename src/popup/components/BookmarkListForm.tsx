@@ -1,4 +1,5 @@
-import { Button, Group, TextInput } from "@mantine/core";
+import { Button, Group, TextInput, Anchor } from "@mantine/core";
+import { IconExternalLink } from '@tabler/icons-react';
 import { useDebouncedValue } from "@mantine/hooks";
 import React, { useEffect, useState } from "react";
 
@@ -32,6 +33,16 @@ export const BookmarkListForm = React.memo<Props>(({ onChange }) => {
       <Button color="gray" onClick={handleClear} disabled={keyword.length < 1}>
         クリア
       </Button>
+      {/* <Button  /// リダイレクトできない
+        component="a" 
+        variant="outline" 
+        href="about://bookmarks/"
+        // target="_blank"
+        rel="noopener noreferrer"
+        leftIcon={<IconExternalLink size="0.9rem" />}
+      >
+        Bookmark Manager
+      </Button> */}
     </Group>
   );
 });

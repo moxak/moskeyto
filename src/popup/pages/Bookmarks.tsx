@@ -1,3 +1,5 @@
+/// 検索フォームとブックマークの一覧を表示するコンポーネント
+
 import { Box, Button, Group, List, Text, Title } from "@mantine/core";
 import { BookmarkListForm } from "../components/BookmarkListForm";
 import { BookmarkListItem } from "../components/BookmarkListItem";

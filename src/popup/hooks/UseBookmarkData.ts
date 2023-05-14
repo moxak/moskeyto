@@ -13,7 +13,16 @@ export const useBookmarkData = (keyword:string) => {
     });
   };
   
-  const flattenBookmarks = (bookmarkTreeNodes: BookmarkTreeNode[]) => {
+  const flattenBookmarks = (
+    bookmarkTreeNodes: BookmarkTreeNode[], 
+    parentNodeTitles: string[]) => {
+    
+    parentNodeTitles = parentNodeTitles.filter((title) => {
+      return title !== "Bookmarks bar" && 
+            //  title !== "Other bookmarks" &&
+             title !== "";
+    });
+
     // Flatten the bookmark tree nodes
     const items: BookmarkItem[] = [];
     for (let node of bookmarkTreeNodes) {
@@ -21,10 +30,13 @@ export const useBookmarkData = (keyword:string) => {
         items.push({
           title: node.title,
           url: node.url,
+          category: parentNodeTitles,
         });
       }
+      let newParentNodeTitles = parentNodeTitles.concat(node.title);
+      // parentNodeTitle.push(node.title);
       if (node.children) {
-        items.push(...flattenBookmarks(node.children));
+        items.push(...flattenBookmarks(node.children, newParentNodeTitles));
       }
     }
     return items;
@@ -33,7 +45,8 @@ export const useBookmarkData = (keyword:string) => {
   useEffect(() => {
     const fetchAndSetBookmarks = async () => {
       const bookmarkTreeNodes: BookmarkTreeNode[] = await fetchBookmarks();
-      const items = flattenBookmarks(bookmarkTreeNodes).filter((i) =>
+      console.log(bookmarkTreeNodes);
+      const items = flattenBookmarks(bookmarkTreeNodes, []).filter((i) =>
         i.title.toLowerCase().includes(keyword.toLowerCase()),
       );
       setBookmarks(items);
