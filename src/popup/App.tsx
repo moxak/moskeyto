@@ -13,7 +13,6 @@ import React, { useEffect, useState } from 'react';
 import { Bookmarks } from './pages/Bookmarks';
 import AppIcon from '/public/icon/icon.svg';
 
-
 export const App: React.FC = () => {
 
   return (

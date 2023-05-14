@@ -16,9 +16,12 @@ export const Bookmarks: React.FC = () => {
     <>
       <BookmarkListForm onChange={handleChangeKeyword} bookmarkLength={bookmarks.length} />
       {bookmarks.length > 0 && (
-        <List type="ordered" mt="md">
-          {bookmarks.map((bookmark) => (
-            <BookmarkListItem key={bookmark.url} bookmark={bookmark}/>
+        <List type="ordered"  mt="md">
+          {bookmarks.map((bookmark, index) => (
+            <BookmarkListItem 
+              key={bookmark.url} 
+              bookmark={bookmark}
+            />
           ))}
         </List>
       )}
